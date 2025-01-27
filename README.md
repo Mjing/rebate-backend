@@ -20,14 +20,13 @@ All the code is currently under package main
 * README.md
 
 # Endpoints
-
-POST   /rebate\_program: This api create a rebate program in system
-POST   /transaction: Creates a transaction
-GET    /rebate\_program/:rebate\_id: To view rebate on particular id
-GET    /calculate\_rebate/:transaction\_id: To calculate rebate on particular transaction
-POST   /claim\_rebate: To file a claim in the system
-GET    /reporting: This endpoint reports total amount of claims between input date range
-GET    /rebate\_claims/progress: This endpoint provides count of rebate claims in each category ie in 
+* POST   /rebate\_program: This api create a rebate program in system
+* POST   /transaction: Creates a transaction
+* GET    /rebate\_program/:rebate\_id: To view rebate on particular id
+* GET    /calculate\_rebate/:transaction\_id: To calculate rebate on particular transaction
+* POST   /claim\_rebate: To file a claim in the system
+* GET    /reporting: This endpoint reports total amount of claims between input date range
+* GET    /rebate\_claims/progress: This endpoint provides count of rebate claims in each category ie in 
             pending, approved and rejected.
 ## Data models
 * Rebate Programs
@@ -61,7 +60,7 @@ Pending Requirements:
     transactions
 * Code testing
 * Containerization, for ease of deployment
-# Improvements
+# Further Improvements
 1. ORM can be overhauled for better/extending use cases. Suggestions:
     * Rebate(R) and Transaction(T) should be kept independent
     * Claims(C) as relations b/w R and T
