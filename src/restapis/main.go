@@ -1,6 +1,7 @@
-package main
+package restapis
 
 import (
+	"os"
 	"log"
 	"time"
 	"github.com/gin-gonic/gin"
@@ -23,10 +24,21 @@ var logger *log.Logger
 func initMain() {
 	initDB()
 	rebateProgramCache = NewCache(10 * time.Minute)
-	logger = log.Default()
+	if logger == nil {
+		logger = log.Default()
+	}
 }
 
-func main() {
+func SetLogFile(filename string) {
+	file, err := os.OpenFile(filename, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalf("Error opening log file: %v\n", err)
+		file.Close()
+	}
+	logger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+}
+
+func RunServer(hostaddr string) {
 	initMain()
 	defer db.Close()
 

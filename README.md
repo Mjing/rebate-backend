@@ -6,16 +6,19 @@ server binary is deployed.
 ## Commands
 * To build, run `make` on your terminal. This will create a server.out file
     Note:Requires `go build` to compile. Install GoLang compiler.
-* To deploy locally run:`./server.out`
-    This will host server on localhost:8080
+* To deploy locally run:`./server.out`, 
+    This will host server on localhost:8080.do --help option to see available flags
 ## File Structure
 All the code is currently under package main
-* main.go: Contain main function with server initialization code
-* models.go: Contains all the ORM info
-* api\_handler.go: Contains all functionality
-* custom\_time.go: Implementation of CustomTime. It has to be implemented to
-    translate request structue into ORMs
-* cache.go: Cache implementation
+* src/restapis:
+    * main.go: Contain RunServer and initialization code
+    * models.go: Contains all the ORM info
+    * api\_handler.go: Contains all functionality
+    * custom\_time.go: Implementation of CustomTime. It has to be implemented to
+        translate request structue into ORMs
+    * cache.go: Cache implementation
+* cmd: Main folder for all executables
+    * main.go: Executable entry code. Main function.
 * Makefile
 * README.md
 
